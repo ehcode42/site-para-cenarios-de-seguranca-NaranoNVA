@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!--Diferentes-->
+    <link rel="stylesheet" href="css/datepicker.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+
+    <!-- MDB -->
+    <link rel="stylesheet" href="css/mdb.dark.min.css" />
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>
+    <script type="text/javascript" src="js/mdb-input.js"></script>    
+    <script type="text/javascript" src="script.js"></script>    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-datepicker.js"></script>    
+    <!---->
+    <script type="text/javascript" src="script.js"></script>    
+
+    <title>Pipous</title>
+</head>
+<body>
+    <head>
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="container">
+              <a class="navbar-brand" href="#">
+                <img src="https://via.placeholder.com/20" class="me-2" height="20" alt="MDB Logo" loading="lazy"/>
+                <h1 class="fs-5 fw-bold mb-0">Pipous</h1>
+              </a>
+              <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link" href="#"></a>
+                </li>
+              </ul>
+            </div>
+        </nav>
+    </head>
+    <main class="container p-4 mb-5">
+        <div id="pnlInsert" class="mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title h4">Insert Pipous</h2>
+                    <div></div>
+                    <div class="row py-2">
+                        <div class="col-12">
+                            <div class="form-outline">
+                                <input type="text" id="insertName" name="insertName" class="form-control form-white" />
+                                <label class="form-label" for="insertName">Name</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row py-2">
+                        <div class="col-12">
+                            <div class="form-outline">
+                                <input type="datetime" id="insertBirthDate" name="insertBirthDate" class="datepicker form-control" data-date-format="mm/dd/yyyy"/>
+                                <label class="form-label" for="insertBirthDate">Birth Date</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row py-2">
+                        <div class="col-12">
+                            <div class="form-outline">
+                                <input type="number" id="insertSalary" name="insertSalary" class="form-control" />
+                                <label class="form-label" for="insertSalary">Salary</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row py-2">
+                        <div class="col-6">
+                            <button type="button" onclick="insertPipou();" class="btn btn-primary w-100">Insert</button>
+                        </div>
+                        <div class="col-6">
+                            <button type="button" onclick="insertCancel();" class="btn btn-danger w-100">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+              </div>
+        </div>
+
+        <div id="pnlUpdate" class="mb-4 d-none">
+            <div class="card py-2">
+                <div class="card-body">
+                    <h2 class="card-title h4">Update Pipous</h2>
+                    <div class="row py-2">
+                        <div class="col-12">
+                            <div class="form-outline">
+                                <input type="text" id="updateName" name="updateName" class="form-control form-white active" />
+                                <label class="form-label" for="updateName">Name</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row py-2">
+                        <div class="col-12">
+                            <div class="form-outline">
+                                <input type="datetime" id="updateBirthDate" name="updateBirthDate" class="datepicker form-control active" data-date-format="mm/dd/yyyy"/>
+                                <label class="form-label" for="updateBirthDate">Birth Date</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row py-2">
+                        <div class="col-12">
+                            <div class="form-outline">
+                                <input type="number" id="updateSalary" name="updateSalary" class="form-control active" />
+                                <label class="form-label" for="updateSalary">Salary</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row py-2">
+                        <div class="col-6">
+                            <button id="btnUpdatePipou" type="button" class="btn btn-primary w-100">Update</button>
+                        </div>
+                        <div class="col-6">
+                            <button type="button" onclick="openUpdate()" class="btn btn-danger w-100">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+              </div>
+        </div>
+
+        <div id="pnlListPipous">
+            <div class="card py-2">
+                <div class="card-body">
+                    <h2 class="card-title h4">List Pipous</h2>
+
+                    <div id="listPipous" class="row">
+                        <div class="col-12">
+                            <table class="table tabe-dark table-stripped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Birthdate</th>
+                                        <th scope="col">Salary</th>
+                                        <th scope="col">Options</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tabelaPipous">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+    <footer class="bg-dark text-center text-lg-start fixed-bottom">
+        <!-- Copyright -->
+        <div class="text-light text-center p-1">
+          © 2022 Copyright:
+          <a class="text-light" href="#">Pipous.com</a>
+        </div>
+        <!-- Copyright -->
+      </footer>
+</body>
+</html>
