@@ -1,4 +1,8 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-c66648af7eb3fe8bc4f294546bfd86ef473780cde1dea487d3c4ff354943c9ae.svg)](https://classroom.github.com/online_ide?assignment_repo_id=7624314&assignment_repo_type=AssignmentRepo)
+# Sobre o projeto
+
+	É um CRUD simples para cadastros de pessoas("pipous"), o arquivo da migration é um sql, basta executa-lo e o banco será gerado com alguns registros.
+
+[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-c66648af7eb3fe8bc4f294546bfd86ef473780cde1dea487d3c4ff354943c9ae.svg)](https://classroom.github.com/online_ide?assignment_repo_id=7624314&assignment_repo_type=AssignmentRepo
 # Projeto para cenários de segurança
 
 - Edite este arquivo informando detalhes de seu projeto, tais como:
